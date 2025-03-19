@@ -1,0 +1,16 @@
+﻿@using Shop.ViewModels
+@model AccountViewModel;
+<div>
+    <h1>Login</h1>
+    <form method="post" action="@Url.Action("LoginPost", "Account")">
+        <div>
+            <label for="Account">Account</label>
+            <input name="Account" value="@Model.Account"/>
+        </div>
+        <div>
+            <label for="Password">Password</label>
+            <input name="Password" value="@Model.Password"/>
+        </div>
+        <button type="submit">Login</button>
+    </form>
+</div>
