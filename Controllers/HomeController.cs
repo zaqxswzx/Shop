@@ -16,13 +16,15 @@ namespace Shop.Controllers
         {
             _shopDb = shopDb;
             _logger = logger;
+            _logger.LogDebug(1, "NLog injected into HomeController");
         }
 
         public IActionResult Index()
         {
             //ULog.DB.Info("", "ulog info");
             //_logger.LogInformation("happy");
-            _logger.Log(LogLevel.Information, "nlog test shit.");
+            //_logger.Log(LogLevel.Information, "nlog");
+            _logger.LogInformation("Hello, this is the index!");
             var a = _shopDb.Members.ToList();
             return View();
         }

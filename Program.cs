@@ -9,6 +9,10 @@ using Shop.Dapper;
 using System.Reflection;
 using NLog;
 using System.Configuration;
+using NLog.Web;
+
+//var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
+//logger.Debug("init main");
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +34,9 @@ builder.Services.AddSingleton<IDbConnection>(sp => {
 });
 builder.Services.AddTransient<IBaseRepository, BaseRepository>();
 builder.Services.AddTransient<IAccountRepository, AccountRepository>();
+
+builder.Host.UseNLog();
+LogManager.Configuration.Variables["connectionString"] = builder.Configuration.GetConnectionString("NLog");
 
 // make reflection about auto DI
 //var types = Assembly.GetExecutingAssembly().GetTypes()
@@ -59,7 +66,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-LogManager.Configuration.Variables["connectionString"] = builder.Configuration.GetConnectionString("NLog");
+
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
