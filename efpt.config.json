@@ -15,15 +15,31 @@
    "T4TemplatePath": null,
    "Tables": [
       {
+         "Name": "[dbo].[Activity]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Cart]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[Product]",
+         "Name": "[dbo].[CartItem]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[User]",
+         "Name": "[dbo].[Game]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Level]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Member]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Product]",
          "ObjectType": 0
       }
    ],

@@ -5,13 +5,15 @@ using System.Collections.Generic;
 
 namespace Shop.Models;
 
-public partial class Cart
+public partial class CartItem
 {
     public int Id { get; set; }
 
-    public int MemberId { get; set; }
+    public int CartId { get; set; }
 
-    public virtual ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
+    public int ProductId { get; set; }
 
-    public virtual Member Member { get; set; }
+    public virtual Cart Cart { get; set; }
+
+    public virtual Product Product { get; set; }
 }

@@ -5,13 +5,13 @@ using System.Collections.Generic;
 
 namespace Shop.Models;
 
-public partial class Cart
+public partial class Level
 {
     public int Id { get; set; }
 
-    public int MemberId { get; set; }
+    public string Name { get; set; }
 
-    public virtual ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
+    public int MemberId { get; set; }
 
     public virtual Member Member { get; set; }
 }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Shop.Models;
 
-public partial class User
+public partial class Member
 {
     public int Id { get; set; }
 
@@ -13,11 +13,11 @@ public partial class User
 
     public string Password { get; set; }
 
-    public DateTime? LoginDatetime { get; set; }
+    public string Name { get; set; }
 
-    public DateTime? ModifyDatetime { get; set; }
+    public int Age { get; set; }
 
-    public string Role { get; set; }
+    public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
 
-    public string Nickname { get; set; }
+    public virtual ICollection<Level> Levels { get; set; } = new List<Level>();
 }

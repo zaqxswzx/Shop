@@ -2,6 +2,6 @@
 
 namespace Shop.Dapper {
     public interface IAccountRepository {
-        Task<IEnumerable<User>> GetAccounts();
+        Task<IEnumerable<Member>> GetAccounts();
     }
 }

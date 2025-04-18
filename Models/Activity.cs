@@ -5,13 +5,17 @@ using System.Collections.Generic;
 
 namespace Shop.Models;
 
-public partial class Product
+public partial class Activity
 {
     public int Id { get; set; }
 
     public string Name { get; set; }
 
-    public int Price { get; set; }
+    public int? Discount { get; set; }
 
-    public virtual ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
+    public DateTime? BeginDate { get; set; }
+
+    public DateTime? EndDate { get; set; }
+
+    public DateTime CreateDate { get; set; }
 }

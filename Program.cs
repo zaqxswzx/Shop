@@ -7,6 +7,8 @@ using System.Data;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Shop.Dapper;
 using System.Reflection;
+using NLog;
+using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -57,6 +59,8 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+LogManager.Configuration.Variables["connectionString"] = builder.Configuration.GetConnectionString("NLog");
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -68,6 +72,9 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
+//app.MapGet("/", () => {
+//    LogManager.GetCurrentClassLogger().Info("Hello World!");
+//    return "Hello World!";
+//});
 app.Run();
 

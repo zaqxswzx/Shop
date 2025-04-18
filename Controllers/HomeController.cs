@@ -20,6 +20,10 @@ namespace Shop.Controllers
 
         public IActionResult Index()
         {
+            //ULog.DB.Info("", "ulog info");
+            //_logger.LogInformation("happy");
+            _logger.Log(LogLevel.Information, "nlog test shit.");
+            var a = _shopDb.Members.ToList();
             return View();
         }
 
@@ -35,10 +39,10 @@ namespace Shop.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        //public IActionResult Error()
+        //{
+        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        //}
     }
 }
